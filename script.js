@@ -1,6 +1,6 @@
 // Write your JavaScript code here!
 window.addEventListener("load", function(){
-let form = document.querySelector("form");
+    let form = document.querySelector("form");
       form.addEventListener("submit", function(event) {
         let pilotNameInput = document.querySelector("input[name=pilotName]");
         let copilotNameInput = document.querySelector("input[name=copilotName]");
@@ -10,6 +10,17 @@ let form = document.querySelector("form");
             alert("All fields are required!");
         }
     });
+});
+
+window.addEventListener("load", function() {
+    let form = document.querySelector("form");
+        form.addEventListener("submit", function(event) {
+            let list;
+            let pilot = document.querySelector("input[name=pilotName]");
+            let copilot = document.querySelector("input[name=copilotName]");
+            let fuelLevel = document.querySelector("input[name=fuelLevel]");
+            let cargoLevel = document.querySelector("input[name=pilotName]");
+        });
 });
 
 window.addEventListener("load", function() {
