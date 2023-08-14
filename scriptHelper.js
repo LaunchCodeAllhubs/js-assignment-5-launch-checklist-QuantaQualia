@@ -27,9 +27,11 @@ function validateInput(testInput) {
 };
 
 
-
-
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+        pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+        copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch`;
+    
+        
     
         
 };
