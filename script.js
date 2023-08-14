@@ -1,28 +1,21 @@
 // Write your JavaScript code here!
-window.addEventListener("load", function(){
+window.addEventListener("load", function() {
     let form = document.querySelector("form");
       form.addEventListener("submit", function(event) {
         let pilotNameInput = document.querySelector("input[name=pilotName]");
         let copilotNameInput = document.querySelector("input[name=copilotName]");
         let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
         let cargoMassInput = document.querySelector("input[name=cargoMass]");
-        if (pilotNameInput.value.trim() === "" || copilotNameInput.value.trim() === "" || fuelLevelInput.value.trim() === "" || cargoMassInput.value.trim() == "") {
+        if (validateInput(pilotNameInput.value, copilotNameInput.value, fuelLevelInput.value, cargoMassInput.value) == "Empty"){
             alert("All fields are required!");
+            event.preventDefault();
+        } else if (validateInput(pilotNameInput.value, copilotNameInput.valude) == "Is a Number" || validateInput(fuelLevelInput.value, cargoMassInput.value) == "Not a Number") {
+            alert("Make sure to enter valid information for each field!");
             event.preventDefault();
         }
     });
 });
 
-window.addEventListener("load", function() {
-    let form = document.querySelector("form");
-        form.addEventListener("submit", function(event) {
-            let list;
-            let pilot = document.querySelector("input[name=pilotName]");
-            let copilot = document.querySelector("input[name=copilotName]");
-            let fuelLevel = document.querySelector("input[name=fuelLevel]");
-            let cargoLevel = document.querySelector("input[name=pilotName]");
-        });
-});
 
 window.addEventListener("load", function() {
 
