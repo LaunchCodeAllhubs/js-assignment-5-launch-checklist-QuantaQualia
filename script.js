@@ -8,6 +8,7 @@ window.addEventListener("load", function(){
         let cargoMassInput = document.querySelector("input[name=cargoMass]");
         if (pilotNameInput.value === "" || copilotNameInput === "" || fuelLevelInput === "" || cargoMassInput == "") {
             alert("All fields are required!");
+            event.preventDefault();
         }
     });
 });
