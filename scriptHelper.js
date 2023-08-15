@@ -14,7 +14,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                 </ol>
                 <img src="">
    */
-}
+};
 
 function validateInput(testInput) {
     if (testInput.trim() == "") {
@@ -28,12 +28,34 @@ function validateInput(testInput) {
 
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-        pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
-        copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch`;
-    
+        console.log(pilot);
+        document.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`;
+        document.getElementById("copilotStatus").innerHTML = `Copilot ${copilot} is ready for launch`;
+
         
+        if ((fuelLevel < 10000) && (cargoLevel <= 10000)) {
+            document.getElementById("fuelStatus").innerHTML = `Fuel level too low for launch`;
+            document.getElementById("cargoStatus").innerHTML = `Cargo mass low enough for launch`;
+            document.getElementById("faultyItems").style.visibility = "visible";
+            document.getElementById("launchStatusCheck").style.color = "#C7254E"; 
+
+        } else if ((fuelLevel >= 10000) && (cargoLevel > 10000)) {
+            document.getElementById("fuelStatus").innerHTML = `Fuel level high enough for launch`
+            document.getElementById("cargoStatus").innerHTML = `Cargo mass too heavy for launch`;
+            document.getElementById("faultyItems").style.visibility = "visible";
+            document.getElementById("launchStatusCheck").style.color = "#C7254E";
+
+        } else if ((fuelLevel < 10000) && (cargoLevel > 10000) ) {
+            document.getElementById("fuelStatus").innerHTML = `Fuel level too low for launch`;
+            document.getElementById("cargoStatus").innerHTML = `Cargo mass too heavy for launch`;
+            document.getElementById("faultyItems").style.visibility = "visible";
+            document.getElementById("launchStatusCheck").style.color = "#C7254E";
+
+        } else if ((fuelLevel >= 10000) && (cargoLevel <= 10000)) {
+           document.getElementById("faultyItems").style.visibility = "visible";
+           document.getElementById("launchStatusCheck").style.color = "#419F6A"; 
+        };
     
-        
 };
 
 async function myFetch() {

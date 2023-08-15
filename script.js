@@ -2,19 +2,21 @@
 window.addEventListener("load", function() {
     let form = document.querySelector("form");
       form.addEventListener("submit", function(event) {
+        
         let list = document.getElementById("faultyItems");
-        let pilotNameInput = document.querySelector("input[name=pilotName]");
-        let copilotNameInput = document.querySelector("input[name=copilotName]");
-        let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
-        let cargoMassInput = document.querySelector("input[name=cargoMass]");
-        if (validateInput(pilotNameInput.value, copilotNameInput.value, fuelLevelInput.value, cargoMassInput.value) == "Empty"){
+        let pilotNameInput = document.querySelector("input[name=pilotName]").value;
+        let copilotNameInput = document.querySelector("input[name=copilotName]").value;
+        let fuelLevelInput = document.querySelector("input[name=fuelLevel]").value;
+        let cargoMassInput = document.querySelector("input[name=cargoMass]").value;
+        event.preventDefault();
+        if (validateInput(pilotNameInput) === "Empty" || validateInput(copilotNameInput) === "Empty" || validateInput(fuelLevelInput) === "Empty" || validateInput(cargoMassInput) === "Empty") {
             alert("All fields are required!");
-            event.preventDefault();
-        } else if (validateInput(pilotNameInput.value, copilotNameInput.valude) == "Is a Number" || validateInput(fuelLevelInput.value, cargoMassInput.value) == "Not a Number") {
+            
+        } else if (validateInput(pilotNameInput) == "Is a Number" || validateInput(copilotNameInput) == "Is a Number" || validateInput(fuelLevelInput) == "Not a Number" || validateInput(fuelLevelInput) == "Not a Number") {
             alert("Make sure to enter valid information for each field!");
-            event.preventDefault();
+            
         }
-        formSubmission (window.document, list, pilotNameInput.value, copilotNameInput.value, fuelLevelInput.value, cargoMassInput.value);    
+        formSubmission (document, list, pilotNameInput, copilotNameInput, fuelLevelInput, cargoMassInput);    
     });
     
 });
