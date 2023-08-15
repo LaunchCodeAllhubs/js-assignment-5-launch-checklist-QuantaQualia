@@ -53,7 +53,11 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
         } else if ((fuelLevel >= 10000) && (cargoLevel <= 10000)) {
            document.getElementById("faultyItems").style.visibility = "visible";
+           document.getElementById("launchStatus").innerHTML = `Shuttle is Ready for Launch`;
            document.getElementById("launchStatusCheck").style.color = "#419F6A"; 
+           document.getElementById("fuelStatus").innerHTML = `Fuel level high enough for launch`;
+           document.getElementById("cargoStatus").innerHTML = `Cargo mass low enough for launch`;
+
         };
     
 };
@@ -61,13 +65,18 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 async function myFetch() {
     let planetsReturned;
 
-    planetsReturned = await fetch().then( function(response) {
+    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+        let planetsPromise = response.json();
+        planetsPromise.then( function(json) {
         });
 
     return planetsReturned;
-}
+    });
+};
 
 function pickPlanet(planets) {
+    let planetPicked = planets[Math.floor(Math.random()*planets.length)];
+    return planetPicked;
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
