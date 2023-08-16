@@ -14,6 +14,8 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                 </ol>
                 <img src="">
    */
+
+                
 };
 
 function validateInput(testInput) {
@@ -36,18 +38,21 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         if ((fuelLevel < 10000) && (cargoLevel <= 10000)) {
             document.getElementById("fuelStatus").innerHTML = `Fuel level too low for launch`;
             document.getElementById("cargoStatus").innerHTML = `Cargo mass low enough for launch`;
+            document.getElementById("launchStatus").innerHTML = `Shuttle Not Ready for Launch`;
             document.getElementById("faultyItems").style.visibility = "visible";
             document.getElementById("launchStatusCheck").style.color = "#C7254E"; 
 
         } else if ((fuelLevel >= 10000) && (cargoLevel > 10000)) {
             document.getElementById("fuelStatus").innerHTML = `Fuel level high enough for launch`
             document.getElementById("cargoStatus").innerHTML = `Cargo mass too heavy for launch`;
+            document.getElementById("launchStatus").innerHTML = `Shuttle Not Ready for Launch`;
             document.getElementById("faultyItems").style.visibility = "visible";
             document.getElementById("launchStatusCheck").style.color = "#C7254E";
 
         } else if ((fuelLevel < 10000) && (cargoLevel > 10000) ) {
             document.getElementById("fuelStatus").innerHTML = `Fuel level too low for launch`;
             document.getElementById("cargoStatus").innerHTML = `Cargo mass too heavy for launch`;
+            document.getElementById("launchStatus").innerHTML = `Shuttle Not Ready for Launch`;
             document.getElementById("faultyItems").style.visibility = "visible";
             document.getElementById("launchStatusCheck").style.color = "#C7254E";
 
@@ -76,7 +81,8 @@ async function myFetch() {
 };
 
 function pickPlanet(planets) {
-    let planetPicked = planets[Math.floor(Math.random()*planets.length)];
+    planets = 7;
+    let planetPicked = Math.floor(Math.random()*planets);    
     return planetPicked;
 }
 
