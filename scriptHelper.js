@@ -46,7 +46,7 @@ function validateInput(testInput) {
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         console.log(pilot);
         document.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`;
-        document.getElementById("copilotStatus").innerHTML = `Copilot ${copilot} is ready for launch`;
+        document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
 
         
         if ((fuelLevel < 10000) && (cargoLevel <= 10000)) {
